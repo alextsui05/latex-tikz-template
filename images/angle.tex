@@ -1,0 +1,63 @@
+\title{Untitled document}
+\author{
+    Alex Tsui
+}
+\date{\today}
+
+%\documentclass[12pt]{report}
+%\documentclass[12pt]{article}
+\documentclass[tikz,border=10pt]{standalone}
+%\usepackage{tikz}
+\usetikzlibrary{quotes,angles}
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+%\usepackage{amssymb}
+%\usepackage{hyperref}
+%\usepackage{graphicx}
+%\usepackage{underscore}
+%\usepackage{makeidx}
+%\usepackage{ulem}
+%\usepackage{xcolor,listings}
+%\usepackage{csquotes}
+%\usepackage{hyperref} % this should be last package loaded
+%\newcommand{\sgn}{\operatorname{sgn}}
+%\lstloadlanguages{[LaTeX]TeX, [primitive]TeX,fortran}
+%\lstset{language={[LaTeX]TeX},
+%      escapeinside={{(*@}{@*)}},
+%       gobble=0,
+%       stepnumber=1,numbersep=5pt,
+%       numberstyle={\footnotesize\color{gray}},%firstnumber=last,
+%      breaklines=true,
+%      framesep=5pt,
+%      basicstyle=\small\ttfamily,
+%      showstringspaces=false,
+%      keywordstyle=\ttfamily\textcolor{blue},
+%      stringstyle=\color{orange},
+%      commentstyle=\color{black},
+%      rulecolor=\color{gray!10},
+%      breakatwhitespace=false,
+%      showspaces=false,  % shows spacing symbol
+%      backgroundcolor=\color{gray!15}}
+%\SetBlockEnvironment{quotation}
+%\makeindex
+%
+%\begin{document}
+%\maketitle
+%
+%\section{Section}
+%Hello world!
+%
+%\end{document}
+%This is never printed
+%\documentclass[tikz,border=10pt]{standalone}
+%\usetikzlibrary{quotes,angles}
+\begin{document}
+\begin{tikzpicture}
+  \draw
+    (3,-1) coordinate (a) node[right] {a}
+    -- (0,0) coordinate (b) node[left] {b}
+    -- (2,2) coordinate (c) node[above right] {c}
+    pic["$\alpha$", draw=orange, <->, angle eccentricity=1.2, angle radius=1cm]
+    {angle=a--b--c};
+\end{tikzpicture}
+\end{document}

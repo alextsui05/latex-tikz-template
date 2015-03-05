@@ -1,0 +1,87 @@
+\title{Untitled document}
+\author{
+    Alex Tsui
+}
+\date{\today}
+
+%\documentclass[12pt]{report}
+\documentclass[12pt]{article}
+%\documentclass[tikz,border=10pt]{standalone}
+%\usepackage{tikz}
+%\usetikzlibrary{quotes,angles}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{underscore}
+\usepackage{makeidx}
+\usepackage{ulem}
+\usepackage{xcolor,listings}
+\usepackage{csquotes}
+\usepackage{hyperref} % this should be last package loaded
+\newcommand{\sgn}{\operatorname{sgn}}
+\lstloadlanguages{[LaTeX]TeX, [primitive]TeX,fortran}
+\lstset{language={[LaTeX]TeX},
+      escapeinside={{(*@}{@*)}},
+       gobble=0,
+       stepnumber=1,numbersep=5pt,
+       numberstyle={\footnotesize\color{gray}},%firstnumber=last,
+      breaklines=true,
+      framesep=5pt,
+      basicstyle=\small\ttfamily,
+      showstringspaces=false,
+      keywordstyle=\ttfamily\textcolor{blue},
+      stringstyle=\color{orange},
+      commentstyle=\color{black},
+      rulecolor=\color{gray!10},
+      breakatwhitespace=false,
+      showspaces=false,  % shows spacing symbol
+      backgroundcolor=\color{gray!15}}
+\SetBlockEnvironment{quotation}
+\makeindex
+
+\begin{document}
+\maketitle
+\section{Introduction}
+Today, I installed TikZ. Check out the results in Figures
+\ref{fig:angle} and \ref{fig:torus-triangulation-minimal}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\columnwidth]{images/angle.pdf}
+    \caption{TikZ is awesome}
+    \label{fig:angle}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\columnwidth]{images/torus-triangulation-minimal.pdf}
+    \caption{TikZ is awesome}
+    \label{fig:torus-triangulation-minimal}
+\end{figure}
+
+What I had to do was pretty minimal. On Ubuntu 14.04, I already had a
+\texttt{texlive} installation, but TikZ 3.0 is not yet available as a package.
+Then,
+
+\begin{enumerate}
+\item I went to \cite{url:pgf} to get the archive, extracted in
+\texttt{\textasciitilde/texmf}, which is in the default search path for \LaTeX
+styles.
+\item Ran \texttt{texhash} to update the cache.
+\end{enumerate}
+
+The TikZ figures are generated from standalone tex files, kept in the
+\texttt{images/} subdirectory. You should specify additional TikZ figures in
+\texttt{Makefile.inc} in the root directory. Calling \texttt{make} at the root
+directory will then trigger them to be built. The resulting pdfs are embedded
+in the main document as usual figures.
+
+%\section{REFERENCES}
+\label{sec:ref}
+\bibliography{main}
+\bibliographystyle{plain}
+
+\end{document}
+This is never printed
